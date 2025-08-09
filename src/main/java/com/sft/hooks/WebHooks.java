@@ -7,6 +7,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
+import static com.sft.automation.DriverFactory.initializeDrivers;
+import static com.sft.automation.DriverFactory.launchApplication;
+
 public class WebHooks {
 
     /*public  DriverFactory driverFactory;
@@ -14,14 +17,16 @@ public class WebHooks {
         driverFactory = new DriverFactory();
     }*/
 
-    @BeforeAll
+
+   // @BeforeAll
     public static void initialize(){
-        DriverFactory.initializeDrivers();
+        initializeDrivers();
     }
 
     @Before
     public static void beforeScenario(){
-        DriverFactory.launchApplication();
+        initializeDrivers();
+        launchApplication();
     }
 
     @BeforeStep

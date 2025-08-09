@@ -7,19 +7,24 @@ import java.time.Duration;
 
 public class DriverFactory {
 
-    public static WebDriver driver;
+    protected static ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
+
+
+    public static WebDriver getDriver() {
+        return driverThreadLocal.get();
+    }
 
     public static void initializeDrivers(){
-        driver = new ChromeDriver();
+        driverThreadLocal.set(new ChromeDriver());
     }
 
     public static void launchApplication(){
-        driver.get("https://www.saucedemo.com/");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+        getDriver().get("https://www.saucedemo.com/");
+        getDriver().manage().window().maximize();
+        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
     }
 
     public static void killDriver(){
-        driver.quit();
+        getDriver().quit();
     }
 }
