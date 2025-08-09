@@ -56,13 +56,16 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                    <parallel>tests</parallel>
+                    <threadCount>2</threadCount>
+                    <!-- <dataProviderThreadCount>2</dataProviderThreadCount> -->
 
-                    <properties>
+                    <!-- <properties>
                         <property>
                             <name>dataProviderThreadCount</name>
                             <value>2</value>
                         </property>
-                    </properties>
+                    </properties> -->
 
                 </configuration>
             </plugin>

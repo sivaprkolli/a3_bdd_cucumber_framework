@@ -22,6 +22,6 @@ public class WebRunner extends AbstractTestNGCucumberTests {
 
     @BeforeClass
     public void beforeClass(ITestContext iTestContext){
-        iTestContext.getCurrentXmlTest().getSuite().setDataProviderThreadCount(2);
+        //iTestContext.getCurrentXmlTest().getSuite().setDataProviderThreadCount(2);
     }
 }
