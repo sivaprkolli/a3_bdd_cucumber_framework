@@ -9,6 +9,14 @@ import org.testng.annotations.DataProvider;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = {"com/sft/steps","com/sft/hooks"},
+         plugin = {
+                "pretty",
+                "html:target/cucumber-html-reports",
+                "html:target/cucumber-report.html",
+                "html:target/cucumber-reports/cucumber-pretty",
+                "json:target/cucumber-reports/CucumberTestReport.json",
+                "timeline:target/test-output-thread/",
+        },
         //tags = "@Smoke or @Regression and @Bug"
         tags = "@Smoke"
 )
