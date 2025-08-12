@@ -13,13 +13,9 @@ import org.openqa.selenium.support.PageFactory;
 
 public class SignInPage {
 
-    public SignInPage(WebDriver androidDriver){
-        PageFactory.initElements(new AppiumFieldDecorator(androidDriver), this);
+    public SignInPage(WebDriver driver){
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
-
-    /*public SignInPage(IOSDriver iOSDriver){
-        PageFactory.initElements(new AppiumFieldDecorator(iOSDriver), this);
-    }*/
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Allow\")")
     //@iOSXCUITFindBy(iOSNsPredicate = )
@@ -44,6 +40,9 @@ public class SignInPage {
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[@name=\"Login\"]")
     private WebElement loginButton;
 
+    @iOSXCUITFindBy(xpath = "(//XCUIElementTypeOther[@name=\"Logout\"])[2]")
+    private WebElement logOutButton;
+
 
     public void login(String username, String password) {
         allowButton.click();
@@ -53,6 +52,18 @@ public class SignInPage {
         enterPassword.sendKeys(password);
         loginButton.click();
     }
+
+    public void logout() {
+        logOutButton.click();
+    }
+
+    public void loginIOS(String username, String password) {
+        alreadyHaveAccount.click();
+        enterEmail.sendKeys(username);
+        enterPassword.sendKeys(password);
+        loginButton.click();
+    }
+
 
 
 

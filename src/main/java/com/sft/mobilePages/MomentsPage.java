@@ -16,9 +16,13 @@ public class MomentsPage {
     private AndroidDriver androidDriver;
     private IOSDriver iOSDriver;
 
-    public MomentsPage(WebDriver androidDriver){
-        PageFactory.initElements(new AppiumFieldDecorator(androidDriver), this);
-        this.androidDriver = (AndroidDriver) androidDriver;
+    public MomentsPage(WebDriver driver) {
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+        try {
+            this.androidDriver = (AndroidDriver) driver;
+        } catch (ClassCastException ce) {
+            this.iOSDriver = (IOSDriver) driver;
+        }
     }
 
     /*public MomentsPage(IOSDriver iOSDriver){
@@ -35,38 +39,53 @@ public class MomentsPage {
     private WebElement momentLogoButton;
 
     @AndroidFindBy(accessibility = "Panic")
-    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Panic'")
+    @iOSXCUITFindBy(accessibility = "Panic")
     private WebElement panicButton;
 
     @AndroidFindBy(xpath = "(//com.horcrux.svg.RectView)[7]")
-    @iOSXCUITFindBy(iOSNsPredicate = "name == 'I already have an account'")
+    @iOSXCUITFindBy(xpath = "(//XCUIElementTypeOther)")
     private WebElement panicTarget;
 
     @AndroidFindBy(xpath = "(//com.horcrux.svg.RectView)[1]")
-    @iOSXCUITFindBy(iOSNsPredicate = "name == 'I already have an account'")
+    @iOSXCUITFindBy(accessibility = "Okay")
     private WebElement panicCloseButton;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Allow\")")
-    //@iOSXCUITFindBy(iOSNsPredicate = )
     private WebElement allowButton;
 
     public void setLikeForMoment() {
         allowButton.click();
         //androidDriver.findElement(AppiumBy.className("com.horcrux.svg.RectView")).click();
         momentLikeButton.click();
-        try {Thread.sleep(3000);} catch (InterruptedException e) {}
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+        }
         momentLogoButton.click();
     }
 
     public void navigateToMomentLogo() {
-        try {Thread.sleep(2000);} catch (InterruptedException e) {}
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+        }
         panicButton.click();
 
     }
 
     public void setPanic() {
         MobileActions mobileActions = new MobileActions();
-        mobileActions.dragAndDrop(panicButton,panicTarget, androidDriver);
+        mobileActions.dragAndDrop(panicButton, panicTarget, androidDriver);
+        panicCloseButton.click();
+    }
+
+    public void setPanicIOS() {
+        MobileActions mobileActions = new MobileActions();
+        mobileActions.dragAndDropIOS(panicButton, panicTarget, iOSDriver);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+        }
         panicCloseButton.click();
     }
 }

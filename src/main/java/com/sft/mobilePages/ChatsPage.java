@@ -14,11 +14,16 @@ import org.testng.Assert;
 
 public class ChatsPage {
     AndroidDriver androidDriver;
+    IOSDriver iOSDriver;
 
 
-    public ChatsPage(WebDriver androidDriver){
-        PageFactory.initElements(new AppiumFieldDecorator(androidDriver), this);
-        this.androidDriver = (AndroidDriver) androidDriver;
+    public ChatsPage(WebDriver driver){
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+        try {
+            this.androidDriver = (AndroidDriver) driver;
+        }catch (ClassCastException ce){
+            this.iOSDriver = (IOSDriver) driver;
+        }
     }
 
     /*public ChatsPage(IOSDriver iOSDriver){

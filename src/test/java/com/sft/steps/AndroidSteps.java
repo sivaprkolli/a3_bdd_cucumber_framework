@@ -4,21 +4,20 @@ import com.sft.automation.DriverFactory;
 import com.sft.mobilePages.ChatsPage;
 import com.sft.mobilePages.MomentsPage;
 import com.sft.mobilePages.SignInPage;
-import com.sft.pages.LoginPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 
-public class MobileSteps extends DriverFactory {
+public class AndroidSteps extends DriverFactory {
 
     SignInPage signInPage;
     MomentsPage momentsPage;
     ChatsPage chatsPage;
 
 
-    public MobileSteps(){
+    public AndroidSteps(){
         signInPage = new SignInPage(getDriver());
         momentsPage = new MomentsPage(getDriver());
         chatsPage = new ChatsPage(getDriver());
