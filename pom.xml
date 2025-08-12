@@ -48,7 +48,7 @@
             <version>7.27.0</version>
         </dependency>
 
-         <dependency>
+        <dependency>
             <groupId>net.masterthought</groupId>
             <artifactId>cucumber-reporting</artifactId>
             <version>5.9.0</version>
@@ -67,53 +67,53 @@
             <version>1.0.12</version>
         </dependency>
 
-                <dependency>
-                    <groupId>tech.grasshopper</groupId>
-                    <artifactId>extentreports-cucumber7-adapter</artifactId>
-                    <version>1.14.0</version>
-                </dependency>
+        <dependency>
+            <groupId>tech.grasshopper</groupId>
+            <artifactId>extentreports-cucumber7-adapter</artifactId>
+            <version>1.14.0</version>
+        </dependency>
 
     </dependencies>
 
     <build>
         <plugins>
 
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.5.3</version>
-                    <configuration>
-                        <suiteXmlFiles>
-                            <suiteXmlFile>testNGSuites/${filePath}.xml</suiteXmlFile>
-                            <!--                        <suiteXmlFile>testNgSuites/a3suite.xml</suiteXmlFile>-->
-                        </suiteXmlFiles>
-                    </configuration>
-
-                </plugin>
-
-
-           <!-- <plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.5.3</version>
                 <configuration>
-
                     <suiteXmlFiles>
-                        <suiteXmlFile>{filePath}.xml</suiteXmlFile>
+                        <suiteXmlFile>testNGSuites/${filePath}.xml</suiteXmlFile>
+                        <!--                        <suiteXmlFile>testNgSuites/a3suite.xml</suiteXmlFile>-->
                     </suiteXmlFiles>
-                    <parallel>tests</parallel>
-                    <threadCount>2</threadCount>
-                    &lt;!&ndash; <dataProviderThreadCount>2</dataProviderThreadCount> &ndash;&gt;
-
-                    &lt;!&ndash; <properties>
-                        <property>
-                            <name>dataProviderThreadCount</name>
-                            <value>2</value>
-                        </property>
-                    </properties> &ndash;&gt;
-
                 </configuration>
-            </plugin>-->
+
+            </plugin>
+
+
+            <!-- <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-surefire-plugin</artifactId>
+                 <version>3.5.3</version>
+                 <configuration>
+
+                     <suiteXmlFiles>
+                         <suiteXmlFile>{filePath}.xml</suiteXmlFile>
+                     </suiteXmlFiles>
+                     <parallel>tests</parallel>
+                     <threadCount>2</threadCount>
+                     &lt;!&ndash; <dataProviderThreadCount>2</dataProviderThreadCount> &ndash;&gt;
+
+                     &lt;!&ndash; <properties>
+                         <property>
+                             <name>dataProviderThreadCount</name>
+                             <value>2</value>
+                         </property>
+                     </properties> &ndash;&gt;
+
+                 </configuration>
+             </plugin>-->
         </plugins>
     </build>
 

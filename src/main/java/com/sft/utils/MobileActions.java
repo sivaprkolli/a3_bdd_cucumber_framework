@@ -19,8 +19,8 @@ public class MobileActions {
     public Point getCenterPoint(WebElement element){
         Point location = element.getLocation();
         Dimension size = element.getSize();
-        System.out.println(location.x);
-        System.out.println(location.y);
+//        System.out.println(location.x);
+//        System.out.println(location.y);
         return new Point(location.x + (size.getWidth() / 2), location.y + (size.getHeight() / 2));
     }
 
