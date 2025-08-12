@@ -7,10 +7,11 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-        features = "src/test/resources/web_features",
-        glue = {"com/sft/steps", "com/sft/hooks"},
-        plugin = {
+        features = "src/test/resources/android_features",
+        glue = {"com/sft/steps", "com/sft/mobileHooks"},
+        /*plugin = {
                 //"com.aventstack.chaintest.plugins.ChainTestCucumberListener:",
+
                 "html:target/cucumber-html-reports",
                 "html:target/cucumber-report.html",
                 "html:target/cucumber-reports/cucumber-pretty",
@@ -18,14 +19,25 @@ import org.testng.annotations.DataProvider;
                 "timeline:target/test-output-thread/",
                 "summary",
                 "pretty",
-        },
+        },*/
+
+        plugin = {"pretty",
+                "html:target/cucumber-html-reports",
+                "html:target/cucumber-report.html",
+                "html:target/cucumber-reports/cucumber-pretty",
+                "json:target/cucumber-reports/CucumberTestReport.json",
+                "timeline:target/test-output-thread/",
+                "summary",
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
+                //"com.aventstack.chaintest.plugins.ChainTestCucumberListner:",
+                "rerun:target/failed.txt"},
 
         /*plugin = {
                 "com.aventstack.chaintest.plugins.ChainTestCucumberListener:", "summary"},*/
         //tags = "@Smoke or @Regression and @Bug"
-        tags = "@Smoke"
+        tags = "@Android"
 )
-public class WebRunner extends AbstractTestNGCucumberTests {
+public class AndroidRunner extends AbstractTestNGCucumberTests {
 
     @DataProvider(parallel = true)
     @Override

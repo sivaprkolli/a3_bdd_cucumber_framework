@@ -4,7 +4,7 @@
 <suite name="Cucumber Suite" parallel="tests" thread-count="2">
     <test name="Smoke">
         <classes>
-            <class name="com.sft.runners.WebRunner"/>
+            <class name="com.sft.runners.AndroidRunner"/>
         </classes>
     </test>
 </suite>
