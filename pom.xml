@@ -77,28 +77,43 @@
 
     <build>
         <plugins>
-            <plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.5.3</version>
+                    <configuration>
+                        <suiteXmlFiles>
+                            <suiteXmlFile>testNGSuites/${filePath}.xml</suiteXmlFile>
+                            <!--                        <suiteXmlFile>testNgSuites/a3suite.xml</suiteXmlFile>-->
+                        </suiteXmlFiles>
+                    </configuration>
+
+                </plugin>
+
+
+           <!-- <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.5.3</version>
                 <configuration>
 
                     <suiteXmlFiles>
-                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                        <suiteXmlFile>{filePath}.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <parallel>tests</parallel>
                     <threadCount>2</threadCount>
-                    <!-- <dataProviderThreadCount>2</dataProviderThreadCount> -->
+                    &lt;!&ndash; <dataProviderThreadCount>2</dataProviderThreadCount> &ndash;&gt;
 
-                    <!-- <properties>
+                    &lt;!&ndash; <properties>
                         <property>
                             <name>dataProviderThreadCount</name>
                             <value>2</value>
                         </property>
-                    </properties> -->
+                    </properties> &ndash;&gt;
 
                 </configuration>
-            </plugin>
+            </plugin>-->
         </plugins>
     </build>
 
