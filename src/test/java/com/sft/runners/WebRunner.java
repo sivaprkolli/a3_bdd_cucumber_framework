@@ -15,8 +15,13 @@ import org.testng.annotations.DataProvider;
                 "html:target/cucumber-report.html",
                 "html:target/cucumber-reports/cucumber-pretty",
                 "json:target/cucumber-reports/CucumberTestReport.json",
-                "timeline:target/test-output-thread/"
+                "timeline:target/test-output-thread/",
+                "summary",
+                "pretty",
         },
+
+        /*plugin = {
+                "com.aventstack.chaintest.plugins.ChainTestCucumberListener:", "summary"},*/
         //tags = "@Smoke or @Regression and @Bug"
         tags = "@Smoke"
 )
