@@ -9,8 +9,6 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriverException;
 
 import java.net.MalformedURLException;
-
-import static com.sft.automation.DriverFactory.getDriver;
 import static com.sft.automation.DriverFactory.launchMobileApplication;
 
 public class IOSHooks {
@@ -20,17 +18,5 @@ public class IOSHooks {
         launchMobileApplication("ios");
     }
 
-    @After
-    public static void afterEveryScenario(Scenario scenario){
 
-        if(scenario.isFailed()) {
-            try {
-                byte[] screenshot = ((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.BYTES);
-                scenario.attach(screenshot, "image/png", "screenshot");
-            } catch (WebDriverException noSupportScreenshot) {
-                System.err.println(noSupportScreenshot.getMessage());
-            }
-        }
-        DriverFactory.killDriver();
-    }
 }

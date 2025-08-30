@@ -20,11 +20,10 @@ public class IOSSteps extends DriverFactory {
 
 
     public IOSSteps(){
-        signInPage = new SignInPage(getDriver());
-        momentsPage = new MomentsPage(getDriver());
-        chatsPage = new ChatsPage(getDriver());
-        profilePage = new ProfilePage(getDriver());
-
+        signInPage = new SignInPage(getMobileDriver());
+        momentsPage = new MomentsPage(getMobileDriver());
+        chatsPage = new ChatsPage(getMobileDriver());
+        profilePage = new ProfilePage(getMobileDriver());
     }
 
     @Given("I have opened the application")
