@@ -16,14 +16,14 @@ import org.testng.annotations.DataProvider;
                 "html:target/cucumber-reports/cucumber-pretty",
                 "json:target/cucumber-reports/CucumberTestReport.json",
                 "timeline:target/test-output-thread/",
-                "summary",
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
                 "pretty",
         },
 
         /*plugin = {
                 "com.aventstack.chaintest.plugins.ChainTestCucumberListener:", "summary"},*/
         //tags = "@Smoke or @Regression and @Bug"
-        tags = "@Smoke"
+        tags = "@MT1"
 )
 public class WebRunner extends AbstractTestNGCucumberTests {
 

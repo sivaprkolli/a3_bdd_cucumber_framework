@@ -18,9 +18,9 @@ public class AndroidSteps extends DriverFactory {
 
 
     public AndroidSteps(){
-        signInPage = new SignInPage(getDriver());
-        momentsPage = new MomentsPage(getDriver());
-        chatsPage = new ChatsPage(getDriver());
+        signInPage = new SignInPage(getMobileDriver());
+        momentsPage = new MomentsPage(getMobileDriver());
+        chatsPage = new ChatsPage(getMobileDriver());
 
     }
 

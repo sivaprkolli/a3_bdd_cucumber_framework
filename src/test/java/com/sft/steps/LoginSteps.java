@@ -30,8 +30,8 @@ public class LoginSteps extends DriverFactory {
 
     @Given("User on landing page")
     public void user_on_landing_page() {
-        loginPage = new LoginPage(getDriver());
-        productsPage = new ProductsPage(getDriver());
+        loginPage = new LoginPage(getWebDriver());
+        productsPage = new ProductsPage(getWebDriver());
     }
     @When("User enter username and password")
     public void user_enter_username_and_password() {
